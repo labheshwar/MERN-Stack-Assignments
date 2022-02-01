@@ -1,0 +1,1 @@
+In this assignment, I have made simple backend structure for Chat Application. This is my first CRUD App so I kept it simple. The Chat has only 2 attributes for Data, i.e, Name & Message (An array of messages). To keep it interesting, I added 'random-name' package to randomly generate names each time.

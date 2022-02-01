@@ -1,0 +1,1 @@
+This was very simple assignment where were just told to implement delete operations in MongoDb using Mongoose.
