@@ -1,0 +1,7 @@
+section video {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+article #content {
+    background-color: rgba(123, 123, 123, 0.2);
+}

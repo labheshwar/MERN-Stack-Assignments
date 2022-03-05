@@ -1,0 +1,6 @@
+footer span {
+    color: green;
+}
+footer span:hover {
+    font-size: 50px;
+}
