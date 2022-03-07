@@ -1,4 +1,5 @@
 import React from "react";
+import TodoList from "./TodoList"
 
 export default function TodoForm () {
     const [todo, setTodo] = React.useState("");
@@ -25,9 +26,8 @@ export default function TodoForm () {
             />
 
             <button onClick={addTodo}>Add</button>
-            {todos.map((todo, index) => (
-                    <p key={index}>{todo}</p>
-                ))}
+            <TodoList todos={todos} />
+        
         </div>
     )
 }
