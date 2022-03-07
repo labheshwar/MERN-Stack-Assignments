@@ -1,22 +1,23 @@
 import React from "react";
-import TodoList from "./TodoList"
 
-export default function TodoForm () {
+export default function TodoForm (props) {
+
     const [todo, setTodo] = React.useState("");
-    const [todos, setTodos] = React.useState([]);
 
     function changeHandler (event) {
         const {value} = event.target;
         setTodo(value);
     }
-
-    function addTodo () {
-        setTodos([...todos, todo]);
+        
+    function sendData (event) {
+        event.preventDefault()
+        if (!todo) return;
+        props.receiveData (todo);
         setTodo("");
     }
 
     return (
-        <div>
+        <form onSubmit={sendData}>
             <input 
                 type="text" 
                 name = "todo"
@@ -25,9 +26,7 @@ export default function TodoForm () {
                 onChange={changeHandler} 
             />
 
-            <button onClick={addTodo}>Add</button>
-            <TodoList todos={todos} />
-        
-        </div>
+            <button>Add</button>
+        </form>
     )
 }

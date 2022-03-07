@@ -1,10 +1,11 @@
 import './App.css';
-import TodoForm from './Components/TodoForm';
+// import TodoForm from './Components/TodoForm';
+import Todo from './Components/Todo';
 
 function App() {
   return (
     <div>
-      <TodoForm />
+      <Todo />
     </div>
   );
 }
