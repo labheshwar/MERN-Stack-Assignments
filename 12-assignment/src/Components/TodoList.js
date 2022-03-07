@@ -1,15 +1,14 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-
 
 export default function TodoList (props) {
+
     return (
         <div className = "todo-list">
             {props.todos.map((todo, index) => (
                 <div key={index} className="list-items">
                     <p>{index+1}. {todo}</p>
-                    <FontAwesomeIcon className = "list-items-icons" icon={faPenToSquare} />
+                    <i className="list-items-icons fa-solid fa fa-pen-to-square"></i>
+                    <i className="list-items-icons fa-solid fa-trash-can"></i>
                 </div>
             ))}
 
