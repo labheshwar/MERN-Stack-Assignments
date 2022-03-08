@@ -7,6 +7,7 @@ export default function Todo () {
     
     const [todo, setTodo] = React.useState("");
     const [allTodos, setAllTodos] = React.useState([]);
+    const [editTodo, setEditTodo] = React.useState(null);
 
     return (
         <div>
@@ -16,10 +17,13 @@ export default function Todo () {
                 setTodo = {setTodo}
                 allTodos = {allTodos}
                 setAllTodos = {setAllTodos}
+                editTodo = {editTodo}
+                setEditTodo = {setEditTodo}
             />
             <TodoList 
                 allTodos = {allTodos}
                 setAllTodos = {setAllTodos}
+                setEditTodo = {setEditTodo}
             />
         </div>
     )

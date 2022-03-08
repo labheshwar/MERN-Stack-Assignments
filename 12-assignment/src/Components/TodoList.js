@@ -1,13 +1,17 @@
 import React from "react";
 
-export default function TodoList ({allTodos, setAllTodos}) {
+export default function TodoList ({allTodos, setAllTodos, setEditTodo}) {
 
-    function deleteTodo (index) {
+    function deleteTodoAt (index) {
         setAllTodos(prevTodos => prevTodos.filter((todo, i) => i !== index));
     }
 
-    function editTodo () {
-
+    function editTodoAt (index) {
+        const todo = {
+            index : index,
+            todo : allTodos[index]
+        }
+        setEditTodo(todo);
     }
 
     return (
@@ -19,12 +23,12 @@ export default function TodoList ({allTodos, setAllTodos}) {
                         <i 
                             style={{marginLeft: "20px"}} 
                             className="fa fa-edit" 
-                            onClick={() => editTodo(index)}
+                            onClick={() => editTodoAt(index)}
                         ></i>
                         <i 
                             style={{marginLeft: "20px"}} 
                             className="fa fa-trash" 
-                            onClick={() => deleteTodo(index)}
+                            onClick={() => deleteTodoAt(index)}
                         ></i>
                     </li>
                 ))}

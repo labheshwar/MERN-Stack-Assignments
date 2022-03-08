@@ -1,6 +1,18 @@
 import React from "react";
 
-export default function TodoForm ({todo, setTodo, allTodos, setAllTodos}) {
+export default function TodoForm ({todo, setTodo, allTodos, setAllTodos, editTodo, setEditTodo}) {
+
+    function updateTodo (editTodoWith, editTodo) {
+        const newTodo = allTodos.map ((todo, index) => {
+            return index === editTodo.index ? editTodoWith : todo;
+        })
+        setAllTodos(newTodo);
+        setEditTodo("");
+    }
+
+    React.useEffect (() => {
+        editTodo ? setTodo (editTodo.todo) : setTodo("");
+    }, [setTodo, editTodo]);
 
     function todoChange (event) {
         setTodo (event.target.value);
@@ -8,8 +20,12 @@ export default function TodoForm ({todo, setTodo, allTodos, setAllTodos}) {
 
     function addTodo (event) {
         event.preventDefault();
-        setAllTodos(prevTodos => [...prevTodos, todo]);
-        setTodo("");
+        if (!editTodo) {
+            setAllTodos(prevTodos => [...prevTodos, todo]);
+            setTodo("");
+        } else {
+            updateTodo (todo, editTodo)
+        }
     }
 
     return (
