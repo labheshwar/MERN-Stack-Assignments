@@ -1,25 +1,34 @@
 import React from "react";
 
-export default function TodoList (props) {
+export default function TodoList ({allTodos, setAllTodos}) {
 
-    function sendEditIndex (index) {
-        props.edit(index);
+    function deleteTodo (index) {
+        setAllTodos(prevTodos => prevTodos.filter((todo, i) => i !== index));
     }
 
-    function sendDeleteIndex (index) {
-        props.delete(index);
+    function editTodo () {
+
     }
 
     return (
-        <div className = "todo-list">
-            {props.todos.map((todo, index) => (
-                <div key={index} className="list-items">
-                    <p>{index+1}. {todo}</p>
-                    <i onClick = { () => {sendEditIndex(index)}} className="list-items-icons fa-solid fa fa-pen-to-square"></i>
-                    <i onClick = { () => {sendDeleteIndex(index)}} className="list-items-icons fa-solid fa-trash-can"></i>
-                </div>
-            ))}
-
+        <div>
+            <ol>
+                {allTodos.map((todo, index) => (
+                    <li key={index}>
+                        {allTodos[index]}
+                        <i 
+                            style={{marginLeft: "20px"}} 
+                            className="fa fa-edit" 
+                            onClick={() => editTodo(index)}
+                        ></i>
+                        <i 
+                            style={{marginLeft: "20px"}} 
+                            className="fa fa-trash" 
+                            onClick={() => deleteTodo(index)}
+                        ></i>
+                    </li>
+                ))}
+            </ol>
         </div>
     )
 }

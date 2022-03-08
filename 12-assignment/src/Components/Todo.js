@@ -1,36 +1,25 @@
 import React from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import Header from "./Header";
 
 export default function Todo () {
-    const [todos, setTodos] = React.useState([]);
-
-    function saveTodo (todo) {
-        setTodos([...todos, todo]);
-    }
-
-    function editTodo (index) {
-        const newTodos = [...todos];
-        // newTodos[index] = 
-        setTodos(newTodos);
-        console.log ("editTodo", index);
-    }
-
-    function deleteTodo (index) {
-        const newTodos = [...todos];
-        newTodos.splice(index, 1);
-        setTodos(newTodos);
-    }
+    
+    const [todo, setTodo] = React.useState("");
+    const [allTodos, setAllTodos] = React.useState([]);
 
     return (
         <div>
+            <Header />
             <TodoForm 
-                receiveData={saveTodo}
+                todo = {todo}
+                setTodo = {setTodo}
+                allTodos = {allTodos}
+                setAllTodos = {setAllTodos}
             />
-            <TodoList
-                todos={todos}
-                edit={editTodo}
-                delete={deleteTodo}
+            <TodoList 
+                allTodos = {allTodos}
+                setAllTodos = {setAllTodos}
             />
         </div>
     )
