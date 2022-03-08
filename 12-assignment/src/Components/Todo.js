@@ -5,9 +5,14 @@ import Header from "./Header";
 
 export default function Todo () {
     
+    const allTodosLocalStorage = JSON.parse(localStorage.getItem("allTodos"))
     const [todo, setTodo] = React.useState("");
-    const [allTodos, setAllTodos] = React.useState([]);
+    const [allTodos, setAllTodos] = React.useState(allTodosLocalStorage);
     const [editTodo, setEditTodo] = React.useState(null);
+
+    React.useEffect (() => {
+        localStorage.setItem("allTodos", JSON.stringify(allTodos));
+    }, [allTodos])
 
     return (
         <div>
