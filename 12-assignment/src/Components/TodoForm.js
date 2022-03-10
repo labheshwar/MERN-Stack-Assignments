@@ -2,14 +2,7 @@ import React from "react";
 
 export default function TodoForm ({todo, setTodo, allTodos, setAllTodos, editTodo, setEditTodo}) {
 
-    function updateTodo (editTodoWith, editTodo) {
-        const newTodo = allTodos.map ((todo, index) => {
-            return index === editTodo.index ? editTodoWith : todo;
-        })
-        setAllTodos(newTodo);
-        setEditTodo("");
-    }
-
+    
     React.useEffect (() => {
         editTodo ? setTodo (editTodo.todo) : setTodo("");
     }, [setTodo, editTodo]);
@@ -27,6 +20,15 @@ export default function TodoForm ({todo, setTodo, allTodos, setAllTodos, editTod
             updateTodo (todo, editTodo)
         }
     }
+
+    function updateTodo (editTodoWith, editTodo) {
+        const newTodo = allTodos.map ((todo, index) => {
+            return index === editTodo.index ? editTodoWith : todo;
+        })
+        setAllTodos(newTodo);
+        setEditTodo("");
+    }
+
 
     return (
         <form onSubmit={addTodo}>
