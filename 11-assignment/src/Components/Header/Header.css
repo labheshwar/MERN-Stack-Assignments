@@ -7,10 +7,11 @@ header {
 header #beginning {
     background-image: url("./../../Assets/header.jfif");
     background-size: cover;
+    background-position: center;
 }
 
 header #beginning div {
-    background-color: rgba(123, 123, 123, 0.3);
+    background-color: rgba(123, 123, 123, 0.5);
 }
 
 header #beginning div h1 {
@@ -18,6 +19,9 @@ header #beginning div h1 {
     text-shadow: 2px 2px;
 }
 
+header #beginning img {
+    padding: 10px;
+}
 header #menu {
     padding-top: 10px;
     padding-bottom: 10px;

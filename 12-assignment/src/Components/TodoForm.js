@@ -29,7 +29,6 @@ export default function TodoForm ({todo, setTodo, allTodos, setAllTodos, editTod
         setEditTodo("");
     }
 
-
     return (
         <form onSubmit={addTodo}>
             <input 
