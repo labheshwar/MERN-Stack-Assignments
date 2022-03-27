@@ -7,9 +7,9 @@ exports.fbCallback = passport.authenticate('facebook', {
 });
 
 exports.success = (req, res) => {
-    return res.send('You are logged in');
+    return res.status(201).send('You are logged in');
 }
 
 exports.failed = (req, res) => {
-    return res.send('Failed to log in');
+    return res.status(500).send('Failed to log in');
 }
